@@ -1,0 +1,12 @@
+{
+    "name": "Airdrop Kayıt Botu",
+    "url": "https://hasan199191.github.io/telegrambotum/",
+    "useLocalStorage": false,
+    "platforms": [
+      {
+        "platform": "org.ton.wallet",
+        "appUrl": "t.me/Qairdrop_Bot/airdropclaim",
+        "name": "Telegram Mini App"
+      }
+    ]
+  }
