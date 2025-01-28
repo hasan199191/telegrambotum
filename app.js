@@ -4,8 +4,11 @@ const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
 
 document.getElementById('connectButton').addEventListener('click', async () => {
     try {
+        console.log('Bağlantı başlatılıyor...');
         const tonConnect = new TonConnect();
         await tonConnect.connect();
+
+        console.log('Cüzdan bağlandı.');
 
         const response = await fetch('https://your-api-endpoint.com/connect', {
             method: 'POST',
