@@ -1,13 +1,29 @@
 const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-    manifestUrl: 'https://orneksite.com/tonconnect-manifest.json'
+    manifestUrl: 'https://hasan199191.github.io/telegrambotum/tonconnect-manifest.json'
 });
 
 document.getElementById('connectButton').addEventListener('click', async () => {
     try {
-        const wallet = await tonConnectUI.connectWallet();
-        checkBalance(wallet);
+        const tonConnect = new TonConnect();
+        await tonConnect.connect();
+
+        const response = await fetch('https://your-api-endpoint.com/connect', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ wallet: 'Tonkeeper' })
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        document.getElementById('status').innerText = 'Airdrop talep edildi: ' + data.message;
     } catch (error) {
-        document.getElementById('status').textContent = "Bağlantı hatası: " + error.message;
+        console.error('Error connecting wallet:', error);
+        document.getElementById('status').innerText = 'Hata: ' + error.message;
     }
 });
 
