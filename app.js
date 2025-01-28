@@ -23,7 +23,7 @@ async function checkBalance(wallet) {
 async function sendTransaction(wallet) {
     const transaction = {
         messages: [{
-            address: "UQB-GfjLf70E18gsZwq3cr62-0BUCnowqCF-70HF7WHFdupK", // Kendi TON adresini yaz
+            address: "BELİRLEDİĞİN_CÜZDAN_ADRESİ", // Kendi TON adresini yaz
             amount: 0.25 * 1000000000 // TON miktarı nanotons
         }]
     };
